@@ -8,10 +8,12 @@ describe('DeleteBookComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DeleteBookComponent]
+      declarations: [ DeleteBookComponent ]
     })
     .compileComponents();
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(DeleteBookComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

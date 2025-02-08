@@ -1,11 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-change-password',
-  imports: [],
+  standalone: false,  // <-- This makes it standalone
+  // imports: [],
   templateUrl: './change-password.component.html',
-  styleUrl: './change-password.component.scss'
+  styleUrls: ['./change-password.component.scss']
 })
-export class ChangePasswordComponent {
+export class ChangePasswordComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
 
 }

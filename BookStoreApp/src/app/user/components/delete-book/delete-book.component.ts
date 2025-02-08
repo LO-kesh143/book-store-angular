@@ -3,22 +3,20 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-delete-book',
-  imports: [],
+  standalone: false,  // <-- This makes it standalone
+  // imports: [],
   templateUrl: './delete-book.component.html',
-  styleUrl: './delete-book.component.scss'
+  styleUrls: ['./delete-book.component.scss'],
 })
-
 export class DeleteBookComponent implements OnInit {
+  userId: string = '';
 
-    userId : string = '';
+  constructor(private route: ActivatedRoute) {}
 
-    constructor(private route: ActivatedRoute){}
-
-    ngOnInit(): void {
-      this.route.parent?.params.subscribe((param) => {
-
-          console.log(param);
-          this.userId = param['userId'];
-      });
-    }
+  ngOnInit(): void {
+    this.route.parent?.params.subscribe((param) => {
+      console.log(param);
+      this.userId = param['userId'];
+    });
+  }
 }

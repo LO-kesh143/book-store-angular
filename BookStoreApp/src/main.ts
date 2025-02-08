@@ -1,18 +1,14 @@
-import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-import { AppComponent } from './app/app.component';
-import { provideRouter } from '@angular/router';
-import { routes } from './app/app.routes';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-// bootstrapApplication(AppComponent, appConfig)
-//   .catch((err) => console.error(err));
+import { AppModule } from './app/app.module';
+import { environment } from './environments/environment';
 
+// Enable production mode if environment is production
+if (environment.production) {
+  enableProdMode();
+}
 
-bootstrapApplication(AppComponent,  
-  {
-      providers : [
-        provideRouter(routes), provideAnimationsAsync()
-      ]
-  });
-  //.catch((err) => console.error(err));
+// Bootstrap the Angular application with the AppModule
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.error(err));

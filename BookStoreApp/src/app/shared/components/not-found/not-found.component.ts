@@ -1,11 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-not-found',
-  imports: [],
+  standalone: false,  // <-- This makes it standalone
+  // imports: [],
   templateUrl: './not-found.component.html',
-  styleUrl: './not-found.component.scss'
+  styleUrls: ['./not-found.component.scss']
 })
-export class NotFoundComponent {
+export class NotFoundComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
 
 }
