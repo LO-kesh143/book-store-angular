@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CounterService } from './shared/services/counter.service';
 import { Counter2Service } from './shared/services/counter2.service';
 import { TestService } from './shared/services/test.service';
+import { counterFacotry } from './shared/services/counter.factory';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,11 @@ import { TestService } from './shared/services/test.service';
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [{provide : CounterService, useClass : Counter2Service}, TestService],
+    providers: [
+    counterFacotry,
+    TestService,
+     { provide : 'aapTitle', useValue : { title : 'This is title', desc : 'this is title desc'} }
+    ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

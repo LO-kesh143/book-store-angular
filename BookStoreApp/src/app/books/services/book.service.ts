@@ -9,7 +9,7 @@ export class BookService {
 
   constructor() { }
 
-  public getBooks(): BookModel[] 
+  public getBooks(): any[] 
   {
     return [
       {
@@ -81,6 +81,33 @@ export class BookService {
           "currency": "INR",
           "value" : 1500
         }
+      }
+    ];
+  }
+
+
+  public recentBooks(): any[] 
+  {
+    return [
+      {
+        "id": 1,
+        "title" : "Angular fundamentals",
+        "totalPages" : 453,
+        "author": "Ram Singh",
+        "price": {
+          "currency": "INR",
+          "value" : 199
+        }
+      },
+      {
+        "id": 2,
+        "title" : "Java fundamentals",
+        "totalPages" : 400,
+        "author": "Shyam",
+        "price": {
+          "currency": "INR",
+          "value" : 250
+        } 
       }
     ];
   }

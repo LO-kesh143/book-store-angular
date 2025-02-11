@@ -2,21 +2,21 @@ import { Injectable } from '@angular/core';
 import { CounterService } from './counter.service';
 import { TestService } from './test.service';
 
-// @Injectable({
-//   providedIn: 'any'
-// })
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
+// @Injectable()
 
-export class Counter2Service extends CounterService {
+export class Counter2Service {
 
-  public override counter: number = 0;
-  constructor(private _testService: TestService) { super(); }
+  public counter: number = 0;
+  constructor() { }
 
-  public override incCounter() : void{
+  public incCounter() : void{
     this.counter+= 2;
   }
 
-  public override decCounter() : void{
+  public decCounter() : void{
     this.counter-= 2;
   }
 }
