@@ -16,21 +16,23 @@ export class HomeComponent implements OnInit {
 
    public count : number = 0;
    public test : boolean = false;
+   public address : string = 'India';
    public obj : AuthorModel = { id: 10, name : 'Lokesh' };
 
   constructor(public _testService: TestService) {
-    console.log('Hello from Parent constructor!');
+    //console.log('Hello from Parent constructor!');
    }
 
   public counter() : void {
     this.count++;
     this.test = !this.test;
     this.obj.id = this.count++;
+    this.address = this.address + this.count;
     // this.obj = { id: this.count++, name: 'Lokesh Kumawat' };
   }
 
   ngOnInit(): void {
-    console.log('Hello from parent ng onit!');
+    //console.log('Hello from parent ng onit!');
     
   }
 }

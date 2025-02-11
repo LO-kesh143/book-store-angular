@@ -1,9 +1,13 @@
-<p>authors child works!</p>
+<div class="child-comp">
+    <p>authors child works!</p>
 
-<p>Input from parent = {{data}}</p>
+    <p>Input from parent = {{data}}</p>
 
-<p>
-    Author Data: <br>
-    Id : {{author.id}} <br>
-    Name : {{author.name}}
-</p>
+    <p>
+        Author Data: <br>
+        Id : {{author.id}} <br>
+        Name : {{author.name}}
+    </p>
+
+    <ng-content></ng-content>
+</div>

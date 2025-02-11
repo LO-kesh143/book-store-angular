@@ -6,16 +6,15 @@ import { FooterComponent } from '../shared/components/footer/footer.component';
 import { NotFoundComponent } from '../shared/components/not-found/not-found.component';
 import { ToolbarComponent } from '../shared/components/toolbar/toolbar.component';
 import { AuthorsComponent } from './components/authors/authors.component';
-
+import { AuthorsAddressComponent } from './components/authors-address/authors-address.component';
 
 @NgModule({
-  declarations: [FooterComponent, NotFoundComponent, ToolbarComponent, AuthorsComponent],
+  declarations: [FooterComponent, NotFoundComponent, ToolbarComponent, AuthorsComponent, AuthorsAddressComponent],
     imports: [
         CommonModule, 
         RouterModule,
         MaterialModule
       ],
-        exports: [ToolbarComponent, FooterComponent, MaterialModule, AuthorsComponent ],
-        //schemas: [CUSTOM_ELEMENTS_SCHEMA]
+        exports: [ToolbarComponent, FooterComponent, MaterialModule, AuthorsComponent, AuthorsAddressComponent ],
 })
 export class SharedModule { }
