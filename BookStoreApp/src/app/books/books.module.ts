@@ -7,7 +7,8 @@ import { BooksComponent } from './books.component';
 import { SharedModule } from '../shared/shared.module';
 import { RecentBooksComponent } from './components/recent-books/recent-books.component';
 import { BookCardComponent } from './components/book-card/book-card.component';
-//import { BookService } from './services/book.service';
+import { FormsModule } from '@angular/forms';
+import { AddBooksComponent } from './components/add-books/add-books.component';
 
 @NgModule({
   declarations: [
@@ -16,8 +17,9 @@ import { BookCardComponent } from './components/book-card/book-card.component';
     BooksComponent,
     RecentBooksComponent,
     BookCardComponent,
+    AddBooksComponent,
   ],
-  imports: [CommonModule, BookRoutingModule, SharedModule],
-  //providers: [BookService]
+  imports: [CommonModule, BookRoutingModule, SharedModule, FormsModule],
+
 })
 export class BooksModule { }
