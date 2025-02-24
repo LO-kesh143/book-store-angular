@@ -5,11 +5,13 @@ import { BookDetailsComponent } from './components/book-details/book-details.com
 import { BooksComponent } from './books.component';
 import { RecentBooksComponent } from './components/recent-books/recent-books.component';
 import { AddBooksComponent } from './components/add-books/add-books.component';
+import { AddBookReactiveComponent } from './components/add-book-reactive/add-book-reactive.component';
 
 const routes: Routes = [
   { path: '', component: AllBooksComponent },
   { path: 'recent', component: RecentBooksComponent },
   { path: 'new', component : AddBooksComponent },
+  { path: 'new-reactive', component : AddBookReactiveComponent },
   { 
     path: ':id', 
     component: BookDetailsComponent 

@@ -9,16 +9,16 @@ import { BookModel } from '../../models/book.model';
 })
 export class BookCardComponent implements OnInit {
 
-  @Input('allBooks') 
+  @Input('allBooks') books : BookModel[];
 
-  get books() : BookModel[] {
-    return this._books;
-  }
+  // get books() : BookModel[] {
+  //   return this._books;
+  // }
 
-  set books(books: BookModel[]){
-    books.map(x => x.title = 'Title: ' + x.title)
-    this._books = books;
-  }
+  // set books(books: BookModel[]){
+  //   books.map(x => x.title = 'Title: ' + x.title)
+  //   this._books = books;
+  // }
 
   private _books : BookModel[];
 

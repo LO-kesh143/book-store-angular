@@ -12,6 +12,7 @@ import { CounterService } from './shared/services/counter.service';
 import { Counter2Service } from './shared/services/counter2.service';
 import { TestService } from './shared/services/test.service';
 import { counterFacotry } from './shared/services/counter.factory';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { counterFacotry } from './shared/services/counter.factory';
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-    providers: [
+    providers: [ 
+    provideHttpClient(withInterceptorsFromDi()),
     counterFacotry,
     TestService,
      { provide : 'aapTitle', useValue : { title : 'This is title', desc : 'this is title desc'} }

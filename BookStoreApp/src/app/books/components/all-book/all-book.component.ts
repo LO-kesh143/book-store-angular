@@ -30,24 +30,24 @@ export class AllBooksComponent implements OnInit {
   ngOnInit(): void {
     this.pageTitle = 'All Books'
 
-    const allBooks = this.bookService.getBooks();
+    //const allBooks = this.bookService.getBooks();
 
-    allBooks.forEach(b=> {
-      var obj = new BookModel();
+    // allBooks.forEach(b=> {
+    //   var obj = new BookModel();
 
-      obj.id = b.id;
-      obj.author = b.author;
-      obj.price = b.price;
-      obj.title = b.title;
-      obj.totalPages = b.totalPages;
-      obj.isPublished = b.isPublished;
-      obj.publishedOn = b.publishedOn;
+    //   obj.id = b.id;
+    //   obj.author = b.author;
+    //   obj.price = b.price;
+    //   obj.title = b.title;
+    //   obj.totalPages = b.totalPages;
+    //   obj.isPublished = b.isPublished;
+    //   obj.publishedOn = b.publishedOn;
 
-      this.books.push(obj);  
-    })
+    //   this.books.push(obj);  
+    // })
 
-    console.log(this.books);
-    
+    //console.log(this.books);
+    this.getAllBooks();
   }
 
   public increase():void{
@@ -56,5 +56,11 @@ export class AllBooksComponent implements OnInit {
 
   public decrease():void{
     this._counterService.decCounter();
+  }
+
+  private getAllBooks() : void {
+    this.bookService.getBooks().subscribe(books => {
+      this.books = books;
+    })
   }
 }

@@ -1,21 +1,48 @@
 <h2>Add New Book</h2>
-
+<table>
+  <tr>
+    <td>Pristine</td>
+    <td>{{bookTitle.pristine}}</td>
+  </tr>
+  <tr>
+    <td>Dirty</td>
+    <td>{{bookTitle.dirty}}</td>
+  </tr>
+  <tr>
+    <td>Touched</td>
+    <td>{{bookTitle.touched}}</td>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>{{bookTitle.status}}</td>
+  </tr>
+  <tr>
+    <td>Erros</td>
+    <td>{{bookTitle.errors | json}}</td>
+  </tr>
+</table>
 <form #myForm="ngForm" (ngSubmit)="saveBook()" class="add-book-form">
     <mat-form-field appearance="fill">
         <mat-label>Title</mat-label>
-        <input matInput name="title" placeholder="Title" [(ngModel)]="model.title">
+        <input matInput name="title" placeholder="Title" [(ngModel)]="model.title" required minlength="10" #bookTitle="ngModel">
         <mat-icon matSuffix>title</mat-icon>
-        <!-- <mat-hint>Hint</mat-hint> -->
+        <mat-error *ngIf="bookTitle.invalid && bookTitle.touched">
+          <span *ngIf="bookTitle.errors?.['required']">Please enter the book title</span>
+          <span *ngIf="bookTitle.errors?.['minlength']">Min lenght is 10</span>
+        </mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Author</mat-label>
-        <input matInput name="author" placeholder="Author" [(ngModel)]="model.author">
+        <input matInput name="author" placeholder="Author" [(ngModel)]="model.author" required #author="ngModel">
         <mat-icon matSuffix>person</mat-icon>
+        <mat-hint *ngIf="author.invalid && author.touched">Please enter the author</mat-hint>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>No of Pages</mat-label>
-        <input matInput name="pages" type="number" placeholder="Pages" [(ngModel)]="model.totalPages">
+        <input matInput name="pages" type="number" placeholder="Pages" [(ngModel)]="model.totalPages" min="10" max="1000" 
+        #nop="ngModel" >
         <mat-icon matSuffix>123</mat-icon>
+        <mat-hint [hidden]="nop.valid">Valid length between 10 to 1000</mat-hint>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Price</mat-label>
@@ -42,6 +69,6 @@
         Check If Book is Published
       </mat-slide-toggle>
 
-    <button type="submit" mat-raised-button color="primary">Save</button> <br/>
+    <button type="submit" [disabled]="myForm.invalid" mat-raised-button color="primary">Save</button> <br/>
 </form>
 

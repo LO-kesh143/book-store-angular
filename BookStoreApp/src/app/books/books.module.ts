@@ -7,8 +7,9 @@ import { BooksComponent } from './books.component';
 import { SharedModule } from '../shared/shared.module';
 import { RecentBooksComponent } from './components/recent-books/recent-books.component';
 import { BookCardComponent } from './components/book-card/book-card.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddBooksComponent } from './components/add-books/add-books.component';
+import { AddBookReactiveComponent } from './components/add-book-reactive/add-book-reactive.component';
 
 @NgModule({
   declarations: [
@@ -18,8 +19,9 @@ import { AddBooksComponent } from './components/add-books/add-books.component';
     RecentBooksComponent,
     BookCardComponent,
     AddBooksComponent,
+    AddBookReactiveComponent
   ],
-  imports: [CommonModule, BookRoutingModule, SharedModule, FormsModule],
+  imports: [CommonModule, BookRoutingModule, SharedModule, FormsModule, ReactiveFormsModule],
 
 })
 export class BooksModule { }

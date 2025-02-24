@@ -2,6 +2,7 @@ import { AfterViewChecked, Component, ElementRef, OnInit, ViewChild } from '@ang
 import { BookService } from '../../services/book.service';
 import { BookModel } from '../../models/book.model';
 import { publicDecrypt } from 'crypto';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-add-books',
@@ -11,6 +12,8 @@ import { publicDecrypt } from 'crypto';
 })
 export class AddBooksComponent implements OnInit {
   
+  @ViewChild('myForm') myForm: NgForm;
+
   prices: any[] = [
     {value: 100, viewValue: '₹ 100'},
     {value: 200, viewValue: '₹ 200'},
@@ -23,8 +26,8 @@ export class AddBooksComponent implements OnInit {
 
   ngOnInit(): void {
     this.model = new BookModel();
-    this.model.title = "Book";
-    this.model.author = "Lokesh";
+    // this.model.title = "Book";
+    // this.model.author = "Lokesh";
     this.model.totalPages = 100;
     this.model.price = {
       value : 100,
@@ -35,19 +38,14 @@ export class AddBooksComponent implements OnInit {
 
   saveBook() : void {
       console.log(this.model);
-    // const book : BookModel = new BookModel();
-    // book.title = value.title;
-    // book.author = value.author;
-    // book.totalPages = value.pages;
-    // book.price = {
-    //   currency: "₹",
-    //   value: value.price
-    // }; 
-    // book.isPublished = value.isPublished;
-    // book.publishedOn = value.publishedOn;
-
-    this._bookService.addBook(this.model);
-
+    
+    if(this.myForm.valid)
+    {
+      this._bookService.addBook(this.model);
+    }
+    else{
+      alert('Form is invalid.')
+    }
   }
 
   
