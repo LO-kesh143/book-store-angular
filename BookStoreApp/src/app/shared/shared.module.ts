@@ -7,14 +7,15 @@ import { NotFoundComponent } from '../shared/components/not-found/not-found.comp
 import { ToolbarComponent } from '../shared/components/toolbar/toolbar.component';
 import { AuthorsComponent } from './components/authors/authors.component';
 import { AuthorsAddressComponent } from './components/authors-address/authors-address.component';
+import { BoolformatPipe } from './pipes/boolformat.pipe';
 
 @NgModule({
-  declarations: [FooterComponent, NotFoundComponent, ToolbarComponent, AuthorsComponent, AuthorsAddressComponent],
+  declarations: [FooterComponent, NotFoundComponent, ToolbarComponent, AuthorsComponent, AuthorsAddressComponent, BoolformatPipe],
     imports: [
         CommonModule, 
         RouterModule,
         MaterialModule
       ],
-        exports: [ToolbarComponent, FooterComponent, MaterialModule, AuthorsComponent, AuthorsAddressComponent ],
+        exports: [ToolbarComponent, FooterComponent, MaterialModule, AuthorsComponent, AuthorsAddressComponent, BoolformatPipe ],
 })
 export class SharedModule { }

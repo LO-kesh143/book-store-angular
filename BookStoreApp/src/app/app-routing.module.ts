@@ -9,23 +9,26 @@ import { UserComponent } from './user/user.component';
 import { HomeComponent } from '../public-components/home/home.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, pathMatch: 'full' },
-  { path: 'about-us', component: AboutUsComponent },
-  { path: 'how-it-works', component: HowItWorksComponent },
+  { path: '', component: HomeComponent, pathMatch: 'full', title : 'Wel-Come the BookStore' },
+  { path: 'about-us', component: AboutUsComponent, title : 'About Us'},
+  { path: 'how-it-works', component: HowItWorksComponent, title : 'How It Works' },
   {
     path: 'auth',
     // component: AuthComponent,
     loadChildren: () => import('./auth/auth.module').then((x) => x.AuthModule),
+    title : 'Authentication'
   },
   {
     path: 'books',
     //component: BooksComponent,
     loadChildren: () => import('./books/books.module').then((x) => x.BooksModule),
+    title : 'Books'
   },
   {
     path: 'user/:userId',
     //component: UserComponent,
     loadChildren: () => import('./user/user.module').then((x) => x.UserModule),
+    title : 'User'
   },
   { path: '**', component: NotFoundComponent },
 ];

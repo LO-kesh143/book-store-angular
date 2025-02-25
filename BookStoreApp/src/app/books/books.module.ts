@@ -22,6 +22,6 @@ import { AddBookReactiveComponent } from './components/add-book-reactive/add-boo
     AddBookReactiveComponent
   ],
   imports: [CommonModule, BookRoutingModule, SharedModule, FormsModule, ReactiveFormsModule],
-
+  exports: [BooksComponent]
 })
 export class BooksModule { }

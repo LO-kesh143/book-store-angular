@@ -20,7 +20,7 @@ export class BookCardComponent implements OnInit {
   //   this._books = books;
   // }
 
-  private _books : BookModel[];
+  //private _books : BookModel[];
 
   constructor() { }
 

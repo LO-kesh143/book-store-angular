@@ -51,19 +51,22 @@ export class AddBookReactiveComponent implements OnInit {
     })
   }
 
-  updateFormValue() : void {
-    this.addBookForm.patchValue({
-      title : 'Lokesh Kumawat',
-      author : 'Self'
-    })
-  }
+  // updateFormValue() : void {
+  //   this.addBookForm.patchValue({
+  //     title : 'Lokesh Kumawat',
+  //     author : 'Self'
+  //   })
+  // }
 
   saveBook() : void {
-    console.log(this.addBookForm.value);
+    // console.log(this.addBookForm.value);
     
       if(this.addBookForm.valid)
       {
-        this._bookService.addBook(this.addBookForm.value);
+        this._bookService.addBook(this.addBookForm.value)
+        .subscribe(x => {
+          console.log(x);
+        })
       }
       else{
         alert('Form is invalid.')
@@ -116,7 +119,8 @@ export class AddBookReactiveComponent implements OnInit {
 
   private getAuthorControl(): FormGroup {
     return this._formBuilder.group({
-      fullName : ''
+      fullName : '',
+      address: ''
     });
   }
 

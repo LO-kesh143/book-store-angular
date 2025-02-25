@@ -12,7 +12,8 @@ export class BookService {
   
   constructor(private _httpClient : HttpClient) { }
 
-  public addBook(bookModel : BookModel) {
+  public addBook(bookModel : BookModel) : Observable<BookModel> {
+    return this._httpClient.post<BookModel>('https://localhost:7178/api/Books', bookModel)
     //this.allBooks.push(bookModel);
   }
 
